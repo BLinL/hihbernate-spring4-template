@@ -88,8 +88,13 @@ public class SpringContextTest {
     @Commit
     @Transactional
     public void testMerge() {
-        Snipper snipper= snipperDAO.queryById(22);
-        snipper.setCreateTime(new Date());
+//        Snipper snipper= snipperDAO.queryById(22);
+//        snipper.setCreateTime(new Date());
+        Snipper snipper = new Snipper();
+        snipper.setSnipperId(22);
+        snipper.setSnipperCode("javacode");
+        snipper.setDesc("jpa使用2323 read only222");
+        snipper.setAuthId("aaa");
         sessionFactory.getCurrentSession().merge(snipper);
     }
 }
